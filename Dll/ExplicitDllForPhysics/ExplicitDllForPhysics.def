@@ -1,0 +1,5 @@
+LIBRARY ExplicitDllForPhysics
+EXPORTS
+		MagnitudeOfForce
+
+

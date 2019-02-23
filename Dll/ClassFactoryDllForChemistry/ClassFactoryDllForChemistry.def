@@ -1,0 +1,4 @@
+LIBRARY ClassFactoryDllForChemistry
+EXPORTS
+		DllGetClassObject	PRIVATE
+		DllCanUnloadNow		PRIVATE	
