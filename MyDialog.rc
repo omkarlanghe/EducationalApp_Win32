@@ -1,0 +1,119 @@
+#include<windows.h>
+#include "MyDialog.h"
+#include "resource1.h"
+MYICON ICON "science.ico"
+MY_BITMAP BITMAP "wallbit.bmp"
+
+
+ID_DATAENTRY DIALOG DISCARDABLE 0, 0, 780, 780
+STYLE DS_MODALFRAME | DS_CENTER | WS_CAPTION
+CAPTION "SCIENCE-PROJECT"
+
+BEGIN
+	GROUPBOX "",201, 22, 30, 220, 470
+	AUTORADIOBUTTON "Physics	(TOPIC: Gravitational force)", ID_RBPHYSICS, 60, 30, 155, 10, WS_TABSTOP
+
+	GROUPBOX "", 202, 256, 30, 250, 470
+	GROUPBOX "", 203, 266, 315, 230, 100
+	AUTORADIOBUTTON "Chemistry	(TOPIC: Carnot cycle)", ID_RBCHEMISTRY, 290, 30, 135, 10, WS_TABSTOP
+	/*AUTORADIOBUTTON "Using Tempreature", ID_CHKTEMP, 270, 175, 80, 10, WS_TABSTOP
+	AUTORADIOBUTTON "Using Heat", ID_CHKHEAT, 360, 175, 50, 10, WS_TABSTOP
+	AUTORADIOBUTTON "Using WorkDone", ID_CHKWORK, 425, 175, 70, 10, WS_TABSTOP
+	*/
+	GROUPBOX "", 204, 520, 30, 250, 470
+	AUTORADIOBUTTON "Maths	(TOPIC: Complex Numbers)", ID_RBMATHS, 550, 30, 140, 10, WS_TABSTOP
+
+	//Physics
+	LTEXT "Gravity	",-1, 32, 70,30,10
+	EDITTEXT ID_ETG, 75, 70,150,10,WS_TABSTOP
+	LTEXT "Mass1	", -1, 32, 90, 50, 10
+	EDITTEXT ID_ETM1, 75, 90, 150, 10, WS_TABSTOP
+	LTEXT "Mass2	", -1, 32, 110, 50, 10
+	EDITTEXT ID_ETM2, 75, 110, 150, 10, WS_TABSTOP
+	LTEXT "Distance	", -1, 32, 130, 30, 10
+	EDITTEXT ID_ETDSQUARE, 75, 130, 150, 10, WS_TABSTOP
+	LTEXT "FG	", -1, 32, 150, 60, 10
+	EDITTEXT ID_ETFG, 75, 150, 150, 10, WS_TABSTOP
+	LTEXT "Gravitational Force Equation:", -1, 32, 220, 150, 10, WS_TABSTOP
+	LTEXT "", -1, 32, 230, 150, 10, WS_TABSTOP
+	LTEXT "		FG = (Gravity * mass1 * mass2) / (Distance^2)", -1, 32, 240, 200, 20, WS_TABSTOP
+
+	PUSHBUTTON "Calculate", ID_PHYPBCONTINUE, 75, 200, 35, 15, WS_TABSTOP
+	PUSHBUTTON "Reset", ID_PHYCLEAR, 125, 200, 25, 15, WS_TABSTOP
+	PUSHBUTTON "Details", ID_PHYDETAIL, 165, 200, 30, 15, WS_TABSTOP
+
+	//Chemistry
+	LTEXT "T1	", -1, 270, 70, 30, 10
+	EDITTEXT ID_ETT1, 305, 70, 150, 10
+	LTEXT "T2   ", -1, 270, 90, 50, 10
+	EDITTEXT ID_ETT2, 305, 90, 150, 10
+	LTEXT "q1   ", -1, 270, 110, 20, 10
+	EDITTEXT ID_ETQ1, 305, 110, 150, 10
+	LTEXT "q2	", -1, 270, 130, 30, 10
+	EDITTEXT ID_ETQ2, 305, 130, 150, 10
+	LTEXT "W	", -1, 270, 150, 30, 10
+	EDITTEXT ID_ETW, 305, 150, 150, 10
+	LTEXT "Where,   ", -1, 270, 220, 60, 10
+	LTEXT "T1 = Tempreature of isothermal reversible compression", -1, 270, 230, 200, 10, WS_TABSTOP
+	LTEXT "T2 = Tempreature of isothermal reversible expansion ", -1, 270, 240, 200, 10, WS_TABSTOP
+	LTEXT "q1 = Heat released ", -1, 270, 250, 200, 10, WS_TABSTOP
+	LTEXT "q2 = Heat absorbed ", -1, 270, 260, 200, 10, WS_TABSTOP
+	LTEXT "W  = Work done on the system ", -1, 270, 270, 200, 10, WS_TABSTOP
+	LTEXT "Carnot cycle equation: ", -1, 270, 290, 200, 10, WS_TABSTOP
+	LTEXT "		n = [ (t2 - t1)/t2 ] = [ (q2 - q1)/q2 ] = (w/q2)", -1, 270, 300, 200, 10, WS_TABSTOP
+	
+	PUSHBUTTON      "Calculate", ID_PBCHMCONTINUE, 320, 200, 35, 15
+	PUSHBUTTON      "Reset", ID_PBCHMCLEAR, 370, 200, 25, 15
+	PUSHBUTTON      "EXIT", ID_CANCEL, 360, 450, 40, 25
+	PUSHBUTTON      "Details", ID_PBCHMDETAIL, 410, 200, 30, 15
+
+	LTEXT "EFFICIENCY USING TEMPREATURE", -1, 280, 340, 200, 10, WS_TABSTOP
+	EDITTEXT ID_ETTEMP, 410, 340, 70, 10
+	LTEXT "EFFICIENCY USING HEAT", -1, 280, 360, 200, 10, WS_TABSTOP
+	EDITTEXT ID_ETTHEAT, 410, 360, 70, 10
+	LTEXT "EFFICIENCY USING WORK DONE", -1, 280, 380, 200, 10, WS_TABSTOP
+	EDITTEXT ID_ETWORK, 410, 380, 70, 10
+
+	//Mathematics
+	LTEXT "Expression-1	",		-1, 530, 70, 50, 10
+	LTEXT "Expression-2	",		-1, 530, 90, 50, 10
+	LTEXT "Addition		",		-1, 530, 110, 50, 10
+	LTEXT "Subtraction	",		-1, 530, 130, 50, 10
+	LTEXT "Multiplication",		-1, 530, 150, 50, 10
+	LTEXT "Division		",		-1, 530, 170, 50, 10
+	LTEXT "Complex Number Equation's:", -1, 530, 220, 200, 10
+	LTEXT "1) Addition:	",	-1, 540, 240, 210, 10
+	LTEXT "z1 + z2 = (x1 + iy1) + (x2 + iy2) = (x1 + x2) + i(y1 + y2)", -1, 540, 250, 210, 10
+
+	LTEXT "2) Subtraction:	",	-1, 540, 270, 210, 10
+	LTEXT "z1 - z2 = (x1 + iy1) - (x2 + iy2) = (x1 - x2) + i(y1 - y2)", -1, 540, 280, 210, 10
+
+	LTEXT "3) Multiplication:", -1, 540, 300, 210, 10
+	LTEXT "z1 . z2 = (x1 + iy1).(x2 + iy2) = (x1x2 - y1y2) + i(x1y2 + y1x2)", -1, 540, 310, 210, 10
+	
+	LTEXT "4) Division:",		 -1, 540, 330, 210, 10
+	LTEXT "z1/z2   = (x1 + iy1)/(x2 + iy2) ", -1, 540, 340, 210, 10
+	LTEXT "		   = (x1 + iy1) / (x2 + iy2) * (x2 - iy2) / (x2 - iy2)", -1, 540, 350, 210, 10
+	LTEXT "		   = (x1x2 + y1y2) / (x2^2 + y2^2) + i(y1x2 - x1y2) / (x2^2 + y2^2)", -1, 540, 360, 220, 10
+	//real
+	LTEXT "Real Part",			-1, 590, 50, 50, 10
+	EDITTEXT ID_ETREALE1,		585, 70, 50, 10
+	EDITTEXT ID_ETREALE2,		585, 90, 50, 10
+	EDITTEXT ID_ETADDREAL,		585, 110, 50, 10
+	EDITTEXT ID_ETSUBREAL,		585, 130, 50, 10
+	EDITTEXT ID_ETMULREAL,		585, 150, 50, 10
+	EDITTEXT ID_ETDIVREAL,		585, 170, 50, 10
+	//imaginary
+	LTEXT "Imaginary Part",		-1, 650, 50, 50, 10
+	EDITTEXT ID_ETIMGE1,		650, 70, 50, 10
+	EDITTEXT ID_ETIMGE2,		650, 90, 50, 10
+	EDITTEXT ID_ETADDIMG,		650, 110, 50, 10
+	EDITTEXT ID_ETSUBIMG,		650, 130, 50, 10
+	EDITTEXT ID_ETMULIMG,		650, 150, 50, 10
+	EDITTEXT ID_ETDIVIMG,		650, 170, 50, 10
+
+	PUSHBUTTON "Calculate", ID_PBOPERATE, 585, 200, 35, 15, WS_TABSTOP
+	PUSHBUTTON "Reset", ID_COMPLEXCLEAR, 635, 200, 25, 15, WS_TABSTOP
+	PUSHBUTTON "Details", ID_PBCPLXDETAIL, 675, 200, 30, 15, WS_TABSTOP
+END
+
