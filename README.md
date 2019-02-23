@@ -5,6 +5,9 @@ Screenshots:
 
 1. Splash screen
 
+![Test Image 4](EducationalApp_Win32/ScreenShots/SpashScreen.PNG)
+        
+      
 
 
 2. Application window
